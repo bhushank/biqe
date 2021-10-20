@@ -1,0 +1,19 @@
+python ./run_biqe.py \
+--model_type kg \
+--model_name_or_path vanilla \
+--config_name bert-base-cased \
+--tokenizer_name ./data/fb15k-237/DAGs/indices/kg_index.pkl \
+--data_set biqe \
+--do_predict \
+--predict_file ./data/fb15k-237/DAGs/test_dags.json \
+--output_dir ./output/ \
+--seed 42 \
+--valid_gold ./data/fb15k-237/DAGs/test_dags_filters.json \
+--valid_every_epoch \
+--plus_classify_tokens 1 \
+--predict one_step_greedy \
+--token_index_path ./data/fb15k-237/DAGs/indices/ent_index.pkl \
+--predict_batch_size 256 \
+--gradient_accumulation_steps 1 \
+--max_part_a 30 \
+--max_seq_length 30
